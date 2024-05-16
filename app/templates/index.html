@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>Loaded providers</p>
+
+    {% for p in providers %}
+        <div>
+            <strong>{{p.name}}</strong>
+
+            {% if p.loaded_successfully %}
+                <p>Connected</p>
+                <p>{{p.provider.account_type.name}}</p>
+
+                <form action="/" method="post">
+                
+                    <input type="text" hidden="true" name="provider_name" value="{{p.provider.get_name()}}">
+                    <input type="submit" value="Set as favorite">
+                </form>
+
+
+            {% else %}
+                <p style="color: red;"><abbr title="{{ p.loading_error }}">Failed</abbr></p>
+            {% endif %}
+
+
+        </div>
+    {%endfor%}
+
+    
+
+    <div class="container d-flex justify-content-center">
+        <form action="/" method="GET">
+            <div class="card mt-5 p-4">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="search_terms">
+                    <div class="input-group-append"><button type="submit" class="btn btn-primary"><i class="bi-search"></i></button></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% for result in search_results %}
+    <div class="card mb-3" style="max-width: 256px;">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{result.trackinfo.art_cover}}" class="img-fluid rounded-start" style="height:64px;width:64px;" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+            <h5 class="card-title">{{result.trackinfo.artists[0]}} - {{result.trackinfo.title}}</h5>
+            <p class="card-text">{{result.trackinfo.album}}</p>
+            <a href="/download?track={{result.to_url()}}" target="_blank">download</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    {%endfor%}
+
+{% endblock %}
+

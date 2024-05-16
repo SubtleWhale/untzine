@@ -1,0 +1,32 @@
+{%for p in providers%}
+<div class ="card card-provider {{ 'provider-success' if p.loaded_successfully else 'provider-failed' }}" style="width: 18rem;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-9">
+                <h5 class="card-title">{{p.name}}</h5>
+                {%if p.loaded_successfully%}
+                    <p class="card-text">Provider is connected</p>
+                    <span class="badge bg-secondary">{{p.provider.account_type.name}}</span>
+                {% else %}
+                    <p data-bs-toggle="tooltip" data-bs-placement="right" title="{{p.loading_error}}" class="card-text">Failed to load provider</p>
+                    <span class="badge bg-secondary">Unavailable</span>
+                {% endif %}
+            </div>
+        
+            
+            {%if p.loaded_successfully%}
+            <div class="col text-end">
+                {%if p.name == user_preferences.provider_name %}
+                    <p><i class="bi bi-star-fill star-button-setted fs-4"></i></p>
+                {% else %}
+                    <form action="/" method="post">
+                        <input type="text" hidden="true" name="provider_name" value="{{p.provider.get_name()}}">
+                        <button type="submit" class="bi bi-star-fill icon-button star-button fs-4"></button>
+                    </form>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{%endfor%}

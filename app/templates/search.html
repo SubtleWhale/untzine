@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-8 offset-2">
+      <form action="/" method="GET">
+        <div class="input-group" style="padding: 32px 0 32px 0;">
+          <input type="text" class="form-control" name="search_terms" placeholder="Search song name">
+          <button type="submit" class="btn btn-primary" type="button" id="button-search"><i class="bi bi-search"></i></button>
+          <button class="btn btn-light" type="button" data-bs-target="#offcanvasSettings" aria-controls="offcanvasSettings" data-bs-toggle="offcanvas"><i class="bi bi-sliders"></i></button>
+        </div>
+      </form>
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettingsLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Settings</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          {%include 'settings.html' %}
+        </div>
+      </div>
+
+      <!-- Search results -->
+      <div id="searchResults" class="row">
+          {% for result in search_results %}
+              <div class="col-12 mb-3">
+                  <div class="card tiny-card">
+                    <div class="row g-0">
+                        <div class="col-md-2">
+                        <img src="{{result.trackinfo.art_cover}}" class="img-fluid rounded" alt="Cover Image">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h6 class="card-title">{{result.trackinfo.artists[0]}} - {{result.trackinfo.title}}</h6>
+                            <p class="card-text text-muted">{{result.trackinfo.album}}</p>
+                        </div>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-center justify-content-center">
+                            <a href="/download?track={{result.to_url()}}" target="_blank" class="btn btn-primary btn-sm download-button">Download</a>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          {%endfor%}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="row">
+  <!-- Audio quality selector -->
+    
+    <p><strong>Audio quality:</strong></p>
+    <div class="dropdown float-end">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownAudioQualityButton" data-bs-toggle="dropdown" aria-expanded="false">{{user_preferences.quality.name}}</button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownAudioQualityButton">
+        {% for q in user_preferences.available_qualities %}
+          <li>
+            <form action="/" method="post">
+                <input type="text" hidden="true" name="quality" value="{{q.value}}">
+                <button type="submit" class="dropdown-item {{'active' if user_preferences.quality == q else ''}}">{{q.name}}</button>
+            </form>
+          </li>
+        {% endfor %}
+      </ul>
+  </div>
+</div>
+
+<p></p>
+
+<p><strong>Audio providers:</strong></p>
+{%include 'providers.html' %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{app_name}}</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    .provider-success{
+      box-shadow: inset 0px -6px rgb(2, 178, 2);
+    }
+    .provider-failed{
+      box-shadow: inset 0px -6px rgb(220, 1, 1);
+    }
+    .star-button {
+      color: rgba(65, 65, 65, 0.247); 
+    }
+    .star-button:hover, .star-button-setted {
+      color: rgb(255, 217, 0); 
+    }
+    .icon-button {
+      border: none;
+      background: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {%include 'search.html' %}
+  </div>
+
+  <!-- Bootstrap Bundle JS (Popper included) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
