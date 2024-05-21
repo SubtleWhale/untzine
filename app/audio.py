@@ -20,6 +20,10 @@ class AudioFormat:
     codec : str
     quality : AudioQualityPicker
 
+    @property
+    def id(self) -> str:
+        return f"{self.codec}{self.bitrate}"
+
 class AudioFormatDefinitions:
     OGG_VORBIS_96 = AudioFormat(96, "ogg", "vorbis", AudioQualityPicker.LOW)
     OGG_VORBIS_160 = AudioFormat(160, "ogg", "vorbis", AudioQualityPicker.MEDIUM)
