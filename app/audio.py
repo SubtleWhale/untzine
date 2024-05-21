@@ -31,9 +31,11 @@ class AudioFormatDefinitions:
     MP3_256 = AudioFormat(256, "mp3", "mp3", AudioQualityPicker.MEDIUM)
     MP3_320 = AudioFormat(320, "mp3", "mp3", AudioQualityPicker.HIGH)
     MP3_160 = AudioFormat(160, "mp3", "mp3", AudioQualityPicker.LOW)
+    MP3_128 = AudioFormat(128, "mp3", "mp3", AudioQualityPicker.LOW)
     MP3_96 = AudioFormat(96, "mp3", "mp3", AudioQualityPicker.VERY_LOW)
     AAC_24 = AudioFormat(24, "m4a", "aac", AudioQualityPicker.MEDIUM)
     AAC_48 = AudioFormat(48, "m4a", "aac", AudioQualityPicker.HIGH)
+    FLAC_16 = AudioFormat(1411, ".flac", "flac", AudioQualityPicker.VERY_HIGH)
 
     @staticmethod
     def list() -> dict[str, AudioFormat]:
