@@ -116,6 +116,7 @@ class RequestManager:
         content = search.provider.download_track(search.trackinfo.id, audio_format)
 
         # Apply tags
+        content.seek(0)
         self.tagger.tag_audio_file(content, search.trackinfo, audio_format)
         content.seek(0)
 
@@ -123,12 +124,3 @@ class RequestManager:
 
         return (filename, content)
         
-
-
-
-
-
-
-
-
-
