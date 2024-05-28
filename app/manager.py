@@ -118,7 +118,6 @@ class RequestManager:
         # Apply tags
         content.seek(0)
         self.tagger.tag_audio_file(content, search.trackinfo, audio_format)
-        content.seek(0)
 
         filename = f"{search.trackinfo.artists[0]} - {search.trackinfo.title}.{audio_format.extension}"
 
