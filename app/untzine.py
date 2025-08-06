@@ -46,6 +46,7 @@ def site():
 
 	response = make_response(render_template('base.html', 
 				app_name=APP_NAME,
+				search_terms=search_terms,
 				providers=provider_registry.get_providers(),
 				search_results=search_results,
 				user_preferences=user_preferences

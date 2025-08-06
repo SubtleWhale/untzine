@@ -36,9 +36,7 @@ _audioFormatMapping = {
 
 @dataclass
 class SpotifyConfiguration(ProviderConfiguration):
-
-    login : str|None = None
-    password : str|None = None
+    
     login_session_save_path : str|None = None
     session : str|None = None
     
@@ -154,9 +152,6 @@ class SpotifyBuilder(ProviderBuilder[SpotifyProvider, SpotifyConfiguration]):
             elif _not_empty(conf.login_session_save_path) and Path(conf.login_session_save_path).exists():
                 session = session_builder.stored_file(conf.login_session_save_path).create()
 
-            elif _not_empty(conf.login) and _not_empty(conf.password):
-
-                session = session_builder.user_pass(conf.login, conf.password).create()
             else:
                 raise Exception("Cannot build spotify provider, no login method configured")
     

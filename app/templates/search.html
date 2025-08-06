@@ -2,7 +2,7 @@
     <div class="col-8 offset-2">
       <form action="/" method="GET">
         <div class="input-group" style="padding: 32px 0 32px 0;">
-          <input type="text" class="form-control" name="search_terms" placeholder="Search song name">
+          <input type="text" value="{% if search_terms %}{{ search_terms }}{% endif %}" class="form-control" name="search_terms" placeholder="Search song name">
           <button type="submit" class="btn btn-primary" type="button" id="button-search"><i class="bi bi-search"></i></button>
           <button class="btn btn-light" type="button" data-bs-target="#offcanvasSettings" aria-controls="offcanvasSettings" data-bs-toggle="offcanvas"><i class="bi bi-sliders"></i></button>
         </div>
