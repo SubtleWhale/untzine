@@ -28,11 +28,9 @@ Here is a list of configuration values available:
 
 | Description | JSON | ENV | example |
 |-------------|------|-----|---------|
-| Spotify
-| account login to get valid session, not used if session is configured | spotify.login | UNTZINE__SPOTIFY__LOGIN | me@email.com
-| account password to get valid session, not used if session is configured | spotify.password | UNTZINE__SPOTIFY__PASSWORD | not123456
 | file path to store and use valid session once logged in | spotify.login_session_save_path | UNTZINE__SPOTIFY__LOGIN_SESSION_SAVE_PATH | spotify_session.json
 | session file as base64 directly, prioritary if configured. You can put the session file content here once logged in | spotify.session  |  UNTZINE__SPOTIFY__SESSION   | aGVoZWhlbm90aGluZ3NlY3JldGhlcmU= |
+| Deezer arl exported from cookies | deezer.arl  |  UNTZINE__DEEZER__ARL   | 1sVE1tWmZNbXB1YmtsdFJIQmhObVUxZDNSMU9Ia |
 
 ## Development
 
